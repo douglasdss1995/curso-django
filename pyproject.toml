@@ -1,0 +1,72 @@
+[project]
+name = "curso-django"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "django>=5.1.4",
+    "djangorestframework>=3.16.1",
+    "pandas>=2.3.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.9.1",
+]
+
+[tool.ruff]
+# Configurações gerais
+line-length = 88
+target-version = "py313"
+extend-exclude = [
+    "migrations",
+    "fundamentos",
+    "*.pyc",
+    "__pycache__",
+    ".git",
+    ".venv",
+    "venv",
+    "env",
+]
+
+[tool.ruff.lint]
+# Regras habilitadas
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+    "DJ",  # flake8-django
+    "N",   # pep8-naming
+    "S",   # flake8-bandit (segurança)
+]
+
+# Regras ignoradas
+ignore = [
+    "S101",  # Use of assert detected (comum em testes)
+    "DJ01",  # Evita avisos sobre null=True em CharField
+]
+
+# Permitir auto-fix para estas regras
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.lint.per-file-ignores]
+# Ignora regras específicas para arquivos de teste
+"**/tests/**/*.py" = ["S101"]
+"**/test_*.py" = ["S101"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["curso-django"]
+section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
+
+[tool.ruff.format]
+# Formatação automática
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"

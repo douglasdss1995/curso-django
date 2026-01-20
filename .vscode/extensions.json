@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "ms-python.python",
+        "ms-python.debugpy",
+        "ms-python.vscode-python-envs",
+        "njpwerner.autodocstring",
+        "batisteo.vscode-django",
+        "charliermarsh.ruff"
+    ]
+}
